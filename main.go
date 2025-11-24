@@ -100,6 +100,10 @@ var (
 )
 
 func main() {
+	e3v3 := machine.ENABLE_3V3
+	e3v3.Configure(machine.PinConfig{Mode: machine.PinOutput})
+	e3v3.High()
+
 	machine.SPI0.Configure(machine.SPIConfig{
 		Frequency: 12000000,
 		SCK:       machine.EPD_SCK_PIN,
