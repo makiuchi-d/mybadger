@@ -19,16 +19,17 @@ const (
 	modeTwitter
 	modeGithub
 	modeWebSite
+	modeKLabTechBook
+	modeTinyGoKeeb
+	modeTinyGoKeebook
 	modeLast
 
-	modeTinyGoKeebook
-	modeKLabTechBook
 	modeKLabTechBookBN
 
 	modeDefault = modeProfile
 	modeA       = modeProfile
 	modeB       = modeTwitter
-	modeC       = modeGithub
+	modeC       = modeTinyGoKeeb
 )
 
 var pages = map[Mode]func() error{
@@ -58,6 +59,16 @@ var pages = map[Mode]func() error{
 		Body{
 			{4, 80, &freesans.Regular9pt7b, "makiuchi-d.github.io"},
 		}),
+
+	modeTinyGoKeeb: BadgeQR(
+		"https://tinygo-keeb.connpass.com/",
+		Title{{&freesans.Bold9pt7b, "connpass"}},
+		Body{
+			{15, 60, &freesans.Regular12pt7b, "TinyGo Keeb"},
+			{19, 85, &shnm.Shnmk12, "自作キーボードと"},
+			{19, 105, &shnm.Shnmk12, "TinyGo と たわむれる会"},
+		}),
+
 	modeTinyGoKeebook: BadgeQR(
 		"https://techbookfest.org/organization/9htjwrJXfaWWnw8Cbg8JsW",
 		Title{
