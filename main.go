@@ -72,26 +72,30 @@ var pages = map[Mode]func() error{
 	modeTinyGoKeebook: BadgeQR(
 		"https://techbookfest.org/organization/9htjwrJXfaWWnw8Cbg8JsW",
 		Title{
-			{&shnm.Shnmk12, "あ17"},
+			{&shnm.Shnmk12, "す02"},
 			{&freesans.Bold9pt7b, "TinyGo Keeb"},
 		},
 		Body{
-			{8, 50 + 20, &freesans.Bold9pt7b, "TinyGo Keebook"},
-			{30, 80 + 20, &freesans.Bold12pt7b, "vol. 1 & 2"},
+			{8, 55 /*+ 15*/, &freesans.Bold9pt7b, "TinyGo Keebook"},
+			{30, 85 /*+ 15*/, &freesans.Bold12pt7b, "vol. 1 & 2"},
 			//{12, 126, &gophers.Regular58pt, "G    V"},
+			{35, 105, &shnm.Shnmk12, "新刊 鋭意執筆中！"},
 		}),
 	modeKLabTechBook: BadgeQR(
-		"https://techbookfest.org/product/aVbpmUVUwehW3Mym5rYrzN",
+		"https://techbookfest.org/organization/5654456649646080",
 		Title{
-			{&shnm.Shnmk12, "ケ35"},
+			{&shnm.Shnmk12, "か07"},
 			{&freesans.Bold9pt7b, "KLab"},
-			{&shnm.Shnmk12, "株式会社"},
+			{&shnm.Shnmk12, "株式会社有志"},
 		},
 		Body{
-			{4, 58, &freesans.Bold9pt7b, "KLabTechBook 16"},
-			{6, 80, &shnm.Shnmk12, "Pythonの抽象基底クラス"},
-			{6, 97, &shnm.Shnmk12, "SQLによるDBマイグレ-ション"},
-			{6, 114, &shnm.Shnmk12, "現代的GAS開発環境"},
+			//{4, 58, &freesans.Bold9pt7b, "KLabTechBook 16"},
+			//{6, 80, &shnm.Shnmk12, "Pythonの抽象基底クラス"},
+			//{6, 97, &shnm.Shnmk12, "SQLによるDBマイグレ-ション"},
+			//{6, 114, &shnm.Shnmk12, "現代的GAS開発環境"},
+			{14, 55, &freesans.Bold9pt7b, "KLabTechBook"},
+			{35, 80, &freesans.Regular9pt7b, "Vol. 1 ~ 16"},
+			{30, 100, &shnm.Shnmk12, "新刊 鋭意執筆中！"},
 		}),
 	modeKLabTechBookBN: BadgeQR(
 		"https://www.klab.com/jp/blog/tech/2025/tbf19.html",
