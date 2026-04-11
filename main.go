@@ -20,15 +20,16 @@ const (
 	modeGithub
 	modeWebSite
 	modeKLabTechBook
-	modeTinyGoKeeb
+	modeKLabTBF
 	modeTinyGoKeebook
 	modeLast
 
+	modeTinyGoKeeb
 	modeKLabTechBookBN
 
 	modeDefault = modeProfile
 	modeA       = modeProfile
-	modeB       = modeTwitter
+	modeB       = modeKLabTBF //modeTwitter
 	modeC       = modeTinyGoKeeb
 )
 
@@ -68,7 +69,6 @@ var pages = map[Mode]func() error{
 			{19, 85, &shnm.Shnmk12, "自作キーボードと"},
 			{19, 105, &shnm.Shnmk12, "TinyGo と たわむれる会"},
 		}),
-
 	modeTinyGoKeebook: BadgeQR(
 		"https://techbookfest.org/organization/9htjwrJXfaWWnw8Cbg8JsW",
 		Title{
@@ -76,12 +76,13 @@ var pages = map[Mode]func() error{
 			{&freesans.Bold9pt7b, "TinyGo Keeb"},
 		},
 		Body{
-			{8, 55 /*+ 15*/, &freesans.Bold9pt7b, "TinyGo Keebook"},
-			{30, 85 /*+ 15*/, &freesans.Bold12pt7b, "vol. 1 & 2"},
+			{8, 55, &freesans.Bold9pt7b, "TinyGo Keebook"},
+			{30, 85, &freesans.Bold12pt7b, "vol. 1 ~ 3"},
 			//{12, 126, &gophers.Regular58pt, "G    V"},
-			{35, 105, &shnm.Shnmk12, "新刊 鋭意執筆中！"},
+			{50, 105, &shnm.Shnmk12, "各 1,000円"},
 		}),
-	modeKLabTechBook: BadgeQR(
+
+	modeKLabTBF: BadgeQR(
 		"https://techbookfest.org/organization/5654456649646080",
 		Title{
 			{&shnm.Shnmk12, "か07"},
@@ -93,9 +94,22 @@ var pages = map[Mode]func() error{
 			//{6, 80, &shnm.Shnmk12, "Pythonの抽象基底クラス"},
 			//{6, 97, &shnm.Shnmk12, "SQLによるDBマイグレ-ション"},
 			//{6, 114, &shnm.Shnmk12, "現代的GAS開発環境"},
-			{14, 55, &freesans.Bold9pt7b, "KLabTechBook"},
-			{35, 80, &freesans.Regular9pt7b, "Vol. 1 ~ 16"},
-			{30, 100, &shnm.Shnmk12, "新刊 鋭意執筆中！"},
+			{15, 55, &freesans.Bold9pt7b, "KLabTechBook"},
+			{25, 85, &freesans.Bold12pt7b, "Vol. 1 ~ 17"},
+			{15, 110, &shnm.Shnmk12, "電子版無料！ 物理本500円"},
+		}),
+	modeKLabTechBook: BadgeQR(
+		"https://techbookfest.org/product/hafckANNn6gH8me8SfATb4",
+		Title{
+			{&shnm.Shnmk12, "か07"},
+			{&freesans.Bold9pt7b, "KLab"},
+			{&shnm.Shnmk12, "株式会社有志"},
+		},
+		Body{
+			{4, 58, &freesans.Bold9pt7b, "KLabTechBook 17"},
+			{6, 80, &shnm.Shnmk12, "Python t-string, Go cgo"},
+			{6, 97, &shnm.Shnmk12, "GitHub Copilot Coding Agent"},
+			{6, 114, &shnm.Shnmk12, "自宅サーバ管理, OpenWrt"},
 		}),
 	modeKLabTechBookBN: BadgeQR(
 		"https://www.klab.com/jp/blog/tech/2025/tbf19.html",
