@@ -20,17 +20,18 @@ const (
 	modeGithub
 	modeWebSite
 	modeKLabTechBook
-	modeKLabTBF
-	modeTinyGoKeebook
+	modeTinyGoKeeb
+	modeTinyGoConf
 	modeLast
 
-	modeTinyGoKeeb
+	modeKLabTBF
+	modeTinyGoKeebook
 	modeKLabTechBookBN
 
 	modeDefault = modeProfile
 	modeA       = modeProfile
-	modeB       = modeKLabTBF //modeTwitter
-	modeC       = modeTinyGoKeeb
+	modeB       = modeTwitter
+	modeC       = modeTinyGoConf
 )
 
 var pages = map[Mode]func() error{
@@ -80,6 +81,13 @@ var pages = map[Mode]func() error{
 			{30, 85, &freesans.Bold12pt7b, "vol. 1 ~ 3"},
 			//{12, 126, &gophers.Regular58pt, "G    V"},
 			{50, 105, &shnm.Shnmk12, "各 1,000円"},
+		}),
+	modeTinyGoConf: BadgeQR(
+		"https://conf.tinygo-keeb.org/2026/",
+		Title{{&freesans.Bold9pt7b, "TinyGo Conf 2026"}},
+		Body{
+			{8, 65, &freesans.Bold9pt7b, "Oct 10th"},
+			{8, 85, &freesans.Bold9pt7b, "in Akihabara!"},
 		}),
 
 	modeKLabTBF: BadgeQR(
