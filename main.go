@@ -19,6 +19,7 @@ const (
 	modeTwitter
 	modeGithub
 	modeWebSite
+	modeYapc
 	modeKLabTechBook
 	modeTinyGoKeeb
 	modeTinyGoConf
@@ -31,7 +32,7 @@ const (
 	modeDefault = modeProfile
 	modeA       = modeProfile
 	modeB       = modeTwitter
-	modeC       = modeTinyGoConf
+	modeC       = modeYapc
 )
 
 var pages = map[Mode]func() error{
@@ -127,6 +128,16 @@ var pages = map[Mode]func() error{
 			{8, 80, &proggy.TinySZ8pt7b, "https://www.klab.com/jp/"},
 			{8, 92, &proggy.TinySZ8pt7b, " blog/tech/2025/tbf19.html"},
 		}),
+	modeYapc: BadgeQR(
+		"https://fortee.jp/yapc-tokyo-2026/proposal/013ab180-a560-434c-8582-8f2f3f6695f3",
+		Title{{&freesans.Bold9pt7b, "YAPC::Tokyo2026"}},
+		Body{
+			{10, 48, &proggy.TinySZ8pt7b, "Day 1"},
+			{45, 48, &proggy.TinySZ8pt7b, "Track B"},
+			{45, 60, &proggy.TinySZ8pt7b, "14:25 (40 min)"},
+			{3, 80, &shnm.Shnmk12, "テーブルはクラスではない:"},
+			{3, 95, &shnm.Shnmk12, "SQLファーストなスキーマ管理"},
+		}),
 }
 
 var profileImg, _ = base64.StdEncoding.DecodeString(`
@@ -176,6 +187,7 @@ func main() {
 		Blocking: true,
 	})
 
+	println("init buttons")
 	btnA = machine.BUTTON_A
 	btnB = machine.BUTTON_B
 	btnC = machine.BUTTON_C
@@ -187,6 +199,7 @@ func main() {
 	btnUp.Configure(machine.PinConfig{Mode: machine.PinInputPulldown})
 	btnDown.Configure(machine.PinConfig{Mode: machine.PinInputPulldown})
 
+	println("display")
 	display.ClearBuffer()
 	display.Display()
 	display.WaitUntilIdle()
@@ -209,6 +222,7 @@ func main() {
 		display.WaitUntilIdle()
 
 		mode = selectMode(mode)
+		println("mode:", mode)
 	}
 }
 
