@@ -20,6 +20,8 @@ const (
 	modeGithub
 	modeWebSite
 	modeYapc
+	modeTinyGoKeebTour // sabae
+	modeSlide
 
 	modeLast
 
@@ -36,7 +38,7 @@ const (
 	modeDefault = modeProfile
 	modeA       = modeProfile
 	modeB       = modeTwitter
-	modeC       = modeYapc
+	modeC       = modeTinyGoKeebTour
 )
 
 var pages = map[Mode]func() error{
@@ -148,6 +150,26 @@ var pages = map[Mode]func() error{
 			{5, 66, &shnm.Shnmk12, "リアルタイム通信システム"},
 			{5, 90, &shnm.Shnmk12, "Server: Go"},
 			{5, 108, &shnm.Shnmk12, "Client: C# (.NET/Unity)"},
+		}),
+	modeTinyGoKeebTour: BadgeQR(
+		"https://tinygo-keeb.connpass.com/event/401917/",
+		Title{{&freesans.Bold9pt7b, "TinyGoKeebTour"}},
+		Body{
+			{10, 55, &freesans.Bold9pt7b, "11/7"},
+			{50, 55, &shnm.Shnmk12, "(土)"},
+			{10, 80, &freesans.Bold9pt7b, "in"},
+			{30, 82, &freesans.Bold12pt7b, "SABAE"},
+			{115, 80, &shnm.Shnmk12, "(福井県)"},
+			{75, 100, &freesans.Bold9pt7b, "with jig.jp"},
+		},
+	),
+	modeSlide: BadgeQR(
+		"https://speakerdeck.com/makki_d/zero-micro-codex-micro-ga-zero-kb02-ni-sokkuridata-node-tsuku-tatta-485632c2-b2ce-4534-b6c9-ec403bf35b20",
+		Title{{&freesans.Bold9pt7b, "LT: zero-micro"}},
+		Body{
+			{5, 60, &shnm.Shnmk12, "Codex Microがzero-kb02に"},
+			{1, 80, &shnm.Shnmk12, "そっくりだったので作ったった"},
+			{5, 100, &proggy.TinySZ8pt7b, "speakerdeck.com"},
 		}),
 }
 
