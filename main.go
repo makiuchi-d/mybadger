@@ -20,14 +20,18 @@ const (
 	modeGithub
 	modeWebSite
 	modeYapc
-	modeKLabTechBook
-	modeTinyGoKeeb
-	modeTinyGoConf
+
 	modeLast
 
-	modeKLabTBF
+	modeKLabTechBook
+	modeKLabTechBookNew
+	modeKLabTechBookBN // 新刊紹介 & 既刊DL (blog)
 	modeTinyGoKeebook
-	modeKLabTechBookBN
+	modeTinyGoKeeb // 技術書典 TinyGo Keeb
+
+	modeTinyGoConf
+	modeGopherConTour
+	modeWSNet2
 
 	modeDefault = modeProfile
 	modeA       = modeProfile
@@ -91,23 +95,21 @@ var pages = map[Mode]func() error{
 			{8, 85, &freesans.Bold9pt7b, "in Akihabara!"},
 		}),
 
-	modeKLabTBF: BadgeQR(
-		"https://techbookfest.org/organization/5654456649646080",
+	modeKLabTechBook: BadgeQR(
+		//"https://techbookfest.org/organization/5654456649646080", // 技術書典
+		"https://gishohaku.dev/gishohaku14/circles/lL5cPyyml4Nlh2FwA1Pg", // 技書博
 		Title{
-			{&shnm.Shnmk12, "か07"},
+			{&shnm.Shnmk12, "く-04"},
 			{&freesans.Bold9pt7b, "KLab"},
-			{&shnm.Shnmk12, "株式会社有志"},
+			{&shnm.Shnmk12, "株式会社"},
 		},
 		Body{
-			//{4, 58, &freesans.Bold9pt7b, "KLabTechBook 16"},
-			//{6, 80, &shnm.Shnmk12, "Pythonの抽象基底クラス"},
-			//{6, 97, &shnm.Shnmk12, "SQLによるDBマイグレ-ション"},
-			//{6, 114, &shnm.Shnmk12, "現代的GAS開発環境"},
-			{15, 55, &freesans.Bold9pt7b, "KLabTechBook"},
-			{25, 85, &freesans.Bold12pt7b, "Vol. 1 ~ 17"},
+			{10, 50, &shnm.Shnmk12, "9/13 技術書同人誌博覧会14"},
+			{15, 70, &freesans.Bold9pt7b, "KLabTechBook"},
+			{25, 93, &freesans.Bold12pt7b, "Vol. 1 ~ 17"},
 			{15, 110, &shnm.Shnmk12, "電子版無料！ 物理本500円"},
 		}),
-	modeKLabTechBook: BadgeQR(
+	modeKLabTechBookNew: BadgeQR(
 		"https://techbookfest.org/product/hafckANNn6gH8me8SfATb4",
 		Title{
 			{&shnm.Shnmk12, "か07"},
@@ -137,6 +139,15 @@ var pages = map[Mode]func() error{
 			{45, 60, &proggy.TinySZ8pt7b, "14:25 (40 min)"},
 			{3, 80, &shnm.Shnmk12, "テーブルはクラスではない:"},
 			{3, 95, &shnm.Shnmk12, "SQLファーストなスキーマ管理"},
+		}),
+	modeWSNet2: BadgeQR(
+		"https://github.com/KLab/wsnet2",
+		Title{{&freesans.Bold9pt7b, "WSNet2"}},
+		Body{
+			{5, 48, &shnm.Shnmk12, "モバイルオンラインゲーム用"},
+			{5, 66, &shnm.Shnmk12, "リアルタイム通信システム"},
+			{5, 90, &shnm.Shnmk12, "Server: Go"},
+			{5, 108, &shnm.Shnmk12, "Client: C# (.NET/Unity)"},
 		}),
 }
 
@@ -237,7 +248,7 @@ func selectMode(m Mode) Mode {
 			return modeC
 		case btnDown.Get():
 			m++
-			if m == modeLast {
+			if m >= modeLast {
 				m = 0
 			}
 			return m
