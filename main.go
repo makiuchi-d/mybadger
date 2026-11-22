@@ -19,26 +19,28 @@ const (
 	modeTwitter
 	modeGithub
 	modeWebSite
-	modeYapc
-	modeTinyGoKeebTour // sabae
-	modeSlide
 
-	modeLast
+	modeTinyGoKeeb // 技術書典 TinyGo Keeb
+	modeTinyGoKeebook
 
 	modeKLabTechBook
 	modeKLabTechBookNew
 	modeKLabTechBookBN // 新刊紹介 & 既刊DL (blog)
-	modeTinyGoKeebook
-	modeTinyGoKeeb // 技術書典 TinyGo Keeb
+
+	modeYapc
+
+	modeLast
 
 	modeTinyGoConf
 	modeGopherConTour
 	modeWSNet2
+	modeTinyGoKeebTour // sabae
+	modeSlide
 
-	modeDefault = modeProfile
+	modeDefault = modeKLabTechBookNew //modeProfile
 	modeA       = modeProfile
 	modeB       = modeTwitter
-	modeC       = modeTinyGoKeebTour
+	modeC       = modeKLabTechBook
 )
 
 var pages = map[Mode]func() error{
@@ -80,12 +82,12 @@ var pages = map[Mode]func() error{
 	modeTinyGoKeebook: BadgeQR(
 		"https://techbookfest.org/organization/9htjwrJXfaWWnw8Cbg8JsW",
 		Title{
-			{&shnm.Shnmk12, "す02"},
+			{&shnm.Shnmk12, "く08"},
 			{&freesans.Bold9pt7b, "TinyGo Keeb"},
 		},
 		Body{
 			{8, 55, &freesans.Bold9pt7b, "TinyGo Keebook"},
-			{30, 85, &freesans.Bold12pt7b, "vol. 1 ~ 3"},
+			{30, 85, &freesans.Bold12pt7b, "vol. 1 ~ 4"},
 			//{12, 126, &gophers.Regular58pt, "G    V"},
 			{50, 105, &shnm.Shnmk12, "各 1,000円"},
 		}),
@@ -98,39 +100,39 @@ var pages = map[Mode]func() error{
 		}),
 
 	modeKLabTechBook: BadgeQR(
-		//"https://techbookfest.org/organization/5654456649646080", // 技術書典
-		"https://gishohaku.dev/gishohaku14/circles/lL5cPyyml4Nlh2FwA1Pg", // 技書博
+		"https://techbookfest.org/organization/5654456649646080", // 技術書典
+		//"https://gishohaku.dev/gishohaku14/circles/lL5cPyyml4Nlh2FwA1Pg", // 技書博
 		Title{
-			{&shnm.Shnmk12, "く-04"},
-			{&freesans.Bold9pt7b, "KLab"},
-			{&shnm.Shnmk12, "株式会社"},
-		},
-		Body{
-			{10, 50, &shnm.Shnmk12, "9/13 技術書同人誌博覧会14"},
-			{15, 70, &freesans.Bold9pt7b, "KLabTechBook"},
-			{25, 93, &freesans.Bold12pt7b, "Vol. 1 ~ 17"},
-			{15, 110, &shnm.Shnmk12, "電子版無料！ 物理本500円"},
-		}),
-	modeKLabTechBookNew: BadgeQR(
-		"https://techbookfest.org/product/hafckANNn6gH8me8SfATb4",
-		Title{
-			{&shnm.Shnmk12, "か07"},
+			{&shnm.Shnmk12, "せ15"},
 			{&freesans.Bold9pt7b, "KLab"},
 			{&shnm.Shnmk12, "株式会社有志"},
 		},
 		Body{
-			{4, 58, &freesans.Bold9pt7b, "KLabTechBook 17"},
-			{6, 80, &shnm.Shnmk12, "Python t-string, Go cgo"},
-			{6, 97, &shnm.Shnmk12, "GitHub Copilot Coding Agent"},
-			{6, 114, &shnm.Shnmk12, "自宅サーバ管理, OpenWrt"},
+			{10, 50, &shnm.Shnmk12, "11/21~12/6 技術書典21"},
+			{15, 70, &freesans.Bold9pt7b, "KLabTechBook"},
+			{25, 93, &freesans.Bold12pt7b, "Vol. 1 ~ 18"},
+			{15, 110, &shnm.Shnmk12, "電子版無料！ 物理本500円"},
+		}),
+	modeKLabTechBookNew: BadgeQR(
+		"https://techbookfest.org/product/2eweKQ9UzCBiBPX9uAD6MC",
+		Title{
+			{&shnm.Shnmk12, "せ15"},
+			{&freesans.Bold9pt7b, "KLab"},
+			{&shnm.Shnmk12, "株式会社有志"},
+		},
+		Body{
+			{4, 58, &freesans.Bold9pt7b, "KLabTechBook 18"},
+			{6, 80, &shnm.Shnmk12, "Python 遅延import, Go cgo"},
+			{6, 97, &shnm.Shnmk12, "魔改造ゲーミングPC"},
+			{6, 114, &shnm.Shnmk12, "シンギュラリティ駆動開発"},
 		}),
 	modeKLabTechBookBN: BadgeQR(
-		"https://www.klab.com/jp/blog/tech/2025/tbf19.html",
+		"https://www.klab.com/jp/blog/tech/2026/tbf21.html",
 		Title{{&freesans.Bold9pt7b, "KLabTechBook"}},
 		Body{
 			{25, 58, &shnm.Shnmk12, "新刊紹介 & Free PDF"},
 			{8, 80, &proggy.TinySZ8pt7b, "https://www.klab.com/jp/"},
-			{8, 92, &proggy.TinySZ8pt7b, " blog/tech/2025/tbf19.html"},
+			{8, 92, &proggy.TinySZ8pt7b, " blog/tech/2026/tbf21.html"},
 		}),
 	modeYapc: BadgeQR(
 		"https://fortee.jp/yapc-tokyo-2026/proposal/013ab180-a560-434c-8582-8f2f3f6695f3",
