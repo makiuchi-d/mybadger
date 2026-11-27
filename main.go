@@ -20,27 +20,27 @@ const (
 	modeGithub
 	modeWebSite
 
-	modeTinyGoKeeb // 技術書典 TinyGo Keeb
-	modeTinyGoKeebook
-
+	modeKLabTechBook16
 	modeKLabTechBook
 	modeKLabTechBookNew
 	modeKLabTechBookBN // 新刊紹介 & 既刊DL (blog)
 
 	modeYapc
+	modeSlide // yapc
 
 	modeLast
 
-	modeTinyGoConf
-	modeGopherConTour
 	modeWSNet2
+	modeGopherConTour
+	modeTinyGoConf
 	modeTinyGoKeebTour // sabae
-	modeSlide
+	modeTinyGoKeeb     // 技術書典 TinyGo Keeb
+	modeTinyGoKeebook
 
-	modeDefault = modeKLabTechBookNew //modeProfile
+	modeDefault = modeProfile
 	modeA       = modeProfile
-	modeB       = modeTwitter
-	modeC       = modeKLabTechBook
+	modeB       = modeKLabTechBook16
+	modeC       = modeYapc
 )
 
 var pages = map[Mode]func() error{
@@ -126,6 +126,19 @@ var pages = map[Mode]func() error{
 			{6, 97, &shnm.Shnmk12, "魔改造ゲーミングPC"},
 			{6, 114, &shnm.Shnmk12, "シンギュラリティ駆動開発"},
 		}),
+	modeKLabTechBook16: BadgeQR(
+		"https://techbookfest.org/product/aVbpmUVUwehW3Mym5rYrzN",
+		Title{
+			{&shnm.Shnmk12, "せ15"},
+			{&freesans.Bold9pt7b, "KLab"},
+			{&shnm.Shnmk12, "株式会社有志"},
+		},
+		Body{
+			{4, 58, &freesans.Bold9pt7b, "KLabTechBook 16"},
+			{6, 80, &shnm.Shnmk12, "第2章「SQLによるDB"},
+			{6, 97, &shnm.Shnmk12, "マイグレーションの再設計」"},
+			{6, 114, &shnm.Shnmk12, ""},
+		}),
 	modeKLabTechBookBN: BadgeQR(
 		"https://www.klab.com/jp/blog/tech/2026/tbf21.html",
 		Title{{&freesans.Bold9pt7b, "KLabTechBook"}},
@@ -166,12 +179,12 @@ var pages = map[Mode]func() error{
 		},
 	),
 	modeSlide: BadgeQR(
-		"https://speakerdeck.com/makki_d/zero-micro-codex-micro-ga-zero-kb02-ni-sokkuridata-node-tsuku-tatta-485632c2-b2ce-4534-b6c9-ec403bf35b20",
-		Title{{&freesans.Bold9pt7b, "LT: zero-micro"}},
+		"https://docs.google.com/presentation/d/1R80oV7fi4L_j2RPMZoYedkQ9L7bHqdKfg2eGLpUsGY0/edit?slide=id.p#slide=id.p",
+		Title{{&freesans.Bold9pt7b, "YAPC::Tokyo2026"}},
 		Body{
-			{5, 60, &shnm.Shnmk12, "Codex Microがzero-kb02に"},
-			{1, 80, &shnm.Shnmk12, "そっくりだったので作ったった"},
-			{5, 100, &proggy.TinySZ8pt7b, "speakerdeck.com"},
+			{3, 60, &shnm.Shnmk12, "テーブルはクラスではない："},
+			{3, 80, &shnm.Shnmk12, "SQLファーストなスキーマ管理"},
+			{5, 100, &proggy.TinySZ8pt7b, "docs.google.com/presenta..."},
 		}),
 }
 
